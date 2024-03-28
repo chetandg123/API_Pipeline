@@ -1,9 +1,9 @@
 name: CI
 on:
   push:
-    branches: [ master]
+    branches: [ main ]
   pull_request:
-    branches: [ master]
+    branches: [ main ]
 
 jobs:
   build:
@@ -14,6 +14,6 @@ jobs:
     - name: Katalon Studio Github Action
       uses: katalon-studio/katalon-studio-github-action@v2
       with:
-          version: '8.6.6'
+          version: '9.3.0'
           projectPath: '${{ github.workspace }}'
           args: '-noSplash -retry=0 -testSuitePath="Test Suites/SmokeTest" -browserType="Web Service" -executionProfile="default" -apiKey="${{secrets.KATALON_API_KEY}}" --config -proxy.auth.option=NO_PROXY -proxy.system.option=NO_PROXY -proxy.system.applyToDesiredCapabilities=true -webui.autoUpdateDrivers=f'
