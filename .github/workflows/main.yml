@@ -16,4 +16,4 @@ jobs:
       with:
           version: '9.3.0'
           projectPath: '${{ github.workspace }}'
-          args: '-noSplash -retry=0 -testSuitePath="Test Suites/SmokeTest" -browserType="Web Service" -executionProfile="default" -apiKey="${{secrets.KATALON_API_KEY}}" --config -proxy.auth.option=NO_PROXY -proxy.system.option=NO_PROXY -proxy.system.applyToDesiredCapabilities=true -webui.autoUpdateDrivers=f'
+          args: '-noSplash -runMode=console -projectPath="${{ github.workspace }}" -retry=0 -testSuitePath="Test Suites/SmokeTest" -browserType="Web Service" -executionProfile="default" -apiKey="${{secrets.KATALON_API_KEY}}" --config -proxy.auth.option=NO_PROXY -proxy.system.option=NO_PROXY -proxy.system.applyToDesiredCapabilities=true -webui.autoUpdateDrivers=false'
