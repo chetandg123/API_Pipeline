@@ -11,7 +11,9 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Set up xvfb
-      run: sudo apt-get install xvfb
-    - name: Run Katalon Studio with xvfb
-      run: xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' /home/runner/.katalon/9.3.0/Katalon_Studio_Engine_Linux_64-9.3.0/katalonc -noSplash -runMode=console -projectPath="${{ github.workspace }}" -retry=0 -testSuitePath="Test Suites/SmokeTest" -browserType="Web Service" -executionProfile="default" -apiKey="${{secrets.KATALON_API_KEY}}" --config -proxy.auth.option=NO_PROXY -proxy.system.option=NO_PROXY -proxy.system.applyToDesiredCapabilities=true -webui.autoUpdateDrivers=false -headless
+    - name: Katalon Studio Github Action
+      uses: katalon-studio/katalon-studio-github-action@v2
+      with:
+          version: '9.3.0'
+          projectPath: '${{ github.workspace }}'
+          args: '-noSplash -retry=0 -testSuitePath="Test Suites/SmokeTest" -browserType="Web Service" -executionProfile="default" -apiKey="${{secrets.KATALON_API_KEY}}" --config -proxy.auth.option=NO_PROXY -proxy.system.option=NO_PROXY -proxy.system.applyToDesiredCapabilities=true -webui.autoUpdateDrivers=false'
