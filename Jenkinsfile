@@ -2,9 +2,9 @@ pipeline{
 
 agent any
 stages {
-    stage('Jenkins Pipeline Jenkins file'){
+    stage('Load Jenkinsfile from git repo'){
 	    steps {
-	    	echo 'Iniatilization'
+	    	echo 'Loaded Jenkinsfile pipeline script to Jenkins'
 	    //	git branch: 'main', credentialsId: 'a1b19d49-e9d9-480d-b182-081c80f53fd8', url: 'https://github.com/chetandg123/API_Pipeline' 
 	    }
     }
